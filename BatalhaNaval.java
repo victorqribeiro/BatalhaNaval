@@ -78,7 +78,8 @@ public static void main(String[] args){
 	
 	char[][] nAcertados = new char[10][10];
         int vezes =0;
-        int Hidroavioes=0, Submarinos=0;
+        int Hidroavioes=0, Submarinos=0, Cruzadores = 0, Encouraçados = 0, Portaa = 0, Encouraçado = 0, Cruzador =0, Porta =0;
+        
         
 	System.out.println("O jogo contem:\n");
         System.out.println("|Embarcação  |Quantidade|Formato|");
@@ -90,7 +91,7 @@ public static void main(String[] args){
         
         while(sair==false){
 		Tiros(nAcertados);
-		System.out.println("Digite as coordenadas do ataque no formato x y. Ex.: 5 3");
+		System.out.println("\nDigite as coordenadas do ataque no formato x y. Ex.: 5 3");
 		String tiro = entrada.nextLine();
 		if(tiro.equals("0")){
 			sair = true;
@@ -102,20 +103,66 @@ public static void main(String[] args){
 				int coordX = Integer.parseInt(coords[1]);
 				if(nAcertados[coordY-1][coordX-1] == 0){	
 					if(tabuleiro[coordY-1][coordX-1] != '.'){
-						System.out.println("Acertou um "+tabuleiro[coordY-1][coordX-1]);
-                                                if(tabuleiro[coordY-1][coordX-1] == 'A'){
+						System.out.println("Acertou um "+tabuleiro[coordY-1][coordX-1]+"");
+                                            switch (tabuleiro[coordY-1][coordX-1]) {
+                                                case 'A':
                                                     Hidroavioes ++;
-                                                            System.out.println("Afundou um Hidroavião");
-                                                            if(Hidroavioes == 5){
-                                                                System.out.println("Todos os Hidroaviões foram afundados");
-                                                            }
-                                                }else if(tabuleiro[coordY-1][coordX-1] == 'S'){
+                                                    System.out.println("Afundou um Hidroavião.");
+                                                    if(Hidroavioes <5){
+                                                        System.out.println("Falta "+(5-Hidroavioes)+" Hidroaviões");
+                                                    }
+                                                    if(Hidroavioes == 5){
+                                                        System.out.println("Todos os Hidroaviões foram afundados.");
+                                                    }
+                                                    break;
+                                                case 'S':
                                                     Submarinos ++;
-                                                            System.out.println("Afundou um Submarino");
-                                                            if(Submarinos == 4){
-                                                                System.out.println("Todos os Submarinos foram afundados");
-                                                            }
-                                                }
+                                                    System.out.println("Afundou um Submarino.");
+                                                    if(Submarinos <4){
+                                                        System.out.println("Falta "+(4-Submarinos)+" Submarinos");
+                                                    }
+                                                    if(Submarinos == 4){
+                                                        System.out.println("Todos os Submarinos foram afundados.");
+                                                    }
+                                                    break;
+                                                case 'C':
+                                                    Cruzadores ++;
+                                                    if(Cruzadores == 2 || Cruzadores == 4 || Cruzadores == 6){
+                                                        System.out.println("Afundou um Cruzador.");
+                                                        Cruzador ++;
+                                                    }
+                                                    if(Cruzador <3){
+                                                        System.out.print("Falta "+(3-Cruzador)+" Cruzador");
+                                                    }    
+                                                    
+                                                    if(Cruzadores == 6){
+                                                        System.out.println("Todos os Cruzadores foram afundados.");
+                                                    }
+                                                    break;
+                                                case 'E':
+                                                    Encouraçados ++;
+                                                    if(Encouraçados == 3 || Encouraçados == 6){
+                                                        System.out.println("Afundou um Encoraçado.");
+                                                        Encouraçado ++;
+                                                    }
+                                                    if(Encouraçado < 2){
+                                                        System.out.print("Falta "+(2-Encouraçado)+" Encouraçados");
+                                                    }
+                                                    if(Encouraçados == 6){
+                                                        System.out.println("Todos os Encouraçados foram afundados.");
+                                                    }
+                                                    break;
+                                                case 'P':
+                                                    Portaa ++;
+                                                    if(Portaa == 4){
+                                                        Porta++;
+                                                        System.out.println("Afundou um Porta-avião.");
+                                                        System.out.println("Todos os Porta-aviões afundaram.");
+                                                    }
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
 					}else{
 						System.out.println("Água!");
 					}
@@ -127,11 +174,16 @@ public static void main(String[] args){
 			}else{
 				System.out.println("Entrada inválida!");
 			}
+                        System.out.print("\n");
 		}
 	}
-        System.out.println("Você tentou "+vezes+" vezes.");
+        System.out.println("FIM DE JOGO!!");
+        System.out.println("Você atirou "+vezes+" vezes.");
         System.out.println("Você acertou "+Hidroavioes+" Hidroaviões.");
         System.out.println("Você acertou "+Submarinos+" Submarinos.");
+        System.out.println("Você acertou "+Cruzador+" Cruzadores.");
+        System.out.println("Você acertou "+Encouraçado+" Encouraçados.");
+        System.out.println("Voce acertou "+Porta+" Porta-aviões.");
 }
 
 }
