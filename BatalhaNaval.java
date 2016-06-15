@@ -101,7 +101,8 @@ public static void main(String[] args){
 				String[] coords = tiro.split(" ");
 				int coordY = Integer.parseInt(coords[0]);
 				int coordX = Integer.parseInt(coords[1]);
-				if(nAcertados[coordY-1][coordX-1] == 0){	
+				if(coordY > 0 && coordY < 11 && coordX > 0 && coordX < 11){
+					if(nAcertados[coordY-1][coordX-1] == 0){	
 					if(tabuleiro[coordY-1][coordX-1] != '.'){
 						System.out.println("Acertou um "+tabuleiro[coordY-1][coordX-1]+"");
                                             switch (tabuleiro[coordY-1][coordX-1]) {
@@ -169,6 +170,9 @@ public static void main(String[] args){
 					nAcertados[coordY-1][coordX-1] = tabuleiro[coordY-1][coordX-1];
 				}else{
 					System.out.println("Você já tentou essa coordenada.");
+				}
+				}else{
+					System.out.println("Coordenadas devem estar entre 1 e 10.");
 				}
 
 			}else{
