@@ -30,7 +30,23 @@ public static void main(String[] args){
         
 	String[] navios	= {"A","A","A","A","A","S","S","S","S","CC","CC","CC","EEE","EEE","PPPP"};
 	int navioTotal = navios.length-1;
-	char[][] tabuleiro = new char[10][10];
+	//char[][] tabuleiro = new char[10][10];
+
+	char[][] tabuleiro = {
+			{'A','.','C','C','.','.','.','.','.','C'},
+			{'.','.','.','.','.','.','.','.','.','C'},
+			{'.','.','P','P','P','p','.','.','.','.'},
+			{'A','.','.','.','.','.','.','C','C','.'},
+			{'.','.','A','.','S','.','.','.','.','.'},
+			{'.','.','.','.','.','.','.','.','.','.'},
+			{'.','S','.','.','S','.','.','.','.','A'},
+			{'.','.','.','.','.','.','E','.','.','.'},
+			{'S','.','.','.','.','.','E','.','.','A'},
+			{'.','E','E','E','.','.','E','.','.','.'},
+			};
+
+	// As linhas abaixo sorteiam as peças no tabuleiro
+	/* 
 	for(int i = 0; i < tabuleiro.length; i++){
 		for(int j = 0; j < tabuleiro[0].length; j++){
 			tabuleiro[i][j] = '.';
@@ -75,6 +91,7 @@ public static void main(String[] args){
 			}
 		}
 	}
+	*/
 	
 	char[][] nAcertados = new char[10][10];
         int vezes =0;
