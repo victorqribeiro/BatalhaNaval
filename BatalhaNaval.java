@@ -148,7 +148,9 @@ public static void main(String[] args){
                                                     Cruzadores ++;
                                                     }
                                                     if(Cruzador <3){
+                                                        System.out.println("Afundou um Cruzador");
                                                         System.out.print("Falta "+(3-Cruzador)+" Cruzador");
+                                                        
                                                     }    
                                                     
                                                     if(Cruzadores == 6){
