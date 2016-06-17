@@ -35,7 +35,7 @@ public static void main(String[] args){
 	char[][] tabuleiro = {
 			{'A','.','C','C','.','.','.','.','.','C'},
 			{'.','.','.','.','.','.','.','.','.','C'},
-			{'.','.','P','P','P','p','.','.','.','.'},
+			{'.','.','P','P','P','P','.','.','.','.'},
 			{'A','.','.','.','.','.','.','C','C','.'},
 			{'.','.','A','.','S','.','.','.','.','.'},
 			{'.','.','.','.','.','.','.','.','.','.'},
@@ -144,10 +144,8 @@ public static void main(String[] args){
                                                     }
                                                     break;
                                                 case 'C':
+                                                    if(tiro.equals("1 3") || tiro.equals("1 4")||tiro.equals("4 8") || tiro.equals("4 9")||tiro.equals("1 10") || tiro.equals("2 10")){
                                                     Cruzadores ++;
-                                                    if(Cruzadores == 2 || Cruzadores == 4 || Cruzadores == 6){
-                                                        System.out.println("Afundou um Cruzador.");
-                                                        Cruzador ++;
                                                     }
                                                     if(Cruzador <3){
                                                         System.out.print("Falta "+(3-Cruzador)+" Cruzador");
@@ -158,7 +156,9 @@ public static void main(String[] args){
                                                     }
                                                     break;
                                                 case 'E':
+                                                    if(tiro.equals("10 4")|| tiro.equals("10 3")|| tiro.equals("10 2")|| tiro.equals("8 7")||tiro.equals("9 7")||tiro.equals("10 7")){
                                                     Encouraçados ++;
+                                                    }
                                                     if(Encouraçados == 3 || Encouraçados == 6){
                                                         System.out.println("Afundou um Encoraçado.");
                                                         Encouraçado ++;
