@@ -1,6 +1,34 @@
+﻿package Trabalho_BatalhaNaval;
+
 import java.util.Scanner;
 class BatalhaNaval{
 
+public static void batalha (){
+    System.out.println("O jogo contem:\n");
+        System.out.println("|Embarcação  |Quantidade|Formato|");
+        System.out.println("|Hidroaviões |         5|      A|");
+        System.out.println("|Submarinos  |         4|      S|");
+        System.out.println("|Cruzadores  |         3|     CC|");
+        System.out.println("|Encouraçados|         2|    EEE|");
+        System.out.println("|Porta-aviões|         1|   PPPP|\n");
+}
+
+public static char[][] tab (){
+    char[][] tabuleiro = {
+			{'A','.','C','C','.','.','.','.','.','C'},
+			{'.','.','.','.','.','.','.','.','.','C'},
+			{'.','.','P','P','P','P','.','.','.','.'},
+			{'A','.','.','.','.','.','.','C','C','.'},
+			{'.','.','A','.','S','.','.','.','.','.'},
+			{'.','.','.','.','.','.','.','.','.','.'},
+			{'.','S','.','.','S','.','.','.','.','A'},
+			{'.','.','.','.','.','.','E','.','.','.'},
+			{'S','.','.','.','.','.','E','.','.','A'},
+			{'.','E','E','E','.','.','E','.','.','.'},
+			};
+    return tabuleiro;
+}
+    
 public static void Tiros(char[][] nAcertados){
 	int i,j;
 	System.out.println("   1 2 3 4 5 6 7 8 9 10");
@@ -32,18 +60,7 @@ public static void main(String[] args){
 	int navioTotal = navios.length-1;
 	//char[][] tabuleiro = new char[10][10];
 
-	char[][] tabuleiro = {
-			{'A','.','C','C','.','.','.','.','.','C'},
-			{'.','.','.','.','.','.','.','.','.','C'},
-			{'.','.','P','P','P','P','.','.','.','.'},
-			{'A','.','.','.','.','.','.','C','C','.'},
-			{'.','.','A','.','S','.','.','.','.','.'},
-			{'.','.','.','.','.','.','.','.','.','.'},
-			{'.','S','.','.','S','.','.','.','.','A'},
-			{'.','.','.','.','.','.','E','.','.','.'},
-			{'S','.','.','.','.','.','E','.','.','A'},
-			{'.','E','E','E','.','.','E','.','.','.'},
-			};
+	char [][] tabuleiro = BatalhaNaval.tab();
 
 	// As linhas abaixo sorteiam as peças no tabuleiro
 	/* 
@@ -97,18 +114,12 @@ public static void main(String[] args){
         int vezes =0;
         int Hidroavioes=0, Submarinos=0, Cruzadores = 0, Encouraçados = 0, Portaa = 0, Encouraçado = 0, Cruzador =0, Porta =0;
         
-        
-	System.out.println("O jogo contem:\n");
-        System.out.println("|Embarcação  |Quantidade|Formato|");
-        System.out.println("|Hidroaviões |         5|      A|");
-        System.out.println("|Submarinos  |         4|      S|");
-        System.out.println("|Cruzadores  |         3|     CC|");
-        System.out.println("|Encouraçados|         2|    EEE|");
-        System.out.println("|Porta-aviões|         1|   PPPP|\n");
+        BatalhaNaval.batalha();
         
         while(sair==false){
 		Tiros(nAcertados);
 		System.out.println("\nDigite as coordenadas do ataque no formato x y. Ex.: 5 3");
+                System.out.println("Para sair digite 0.");
 		String tiro = entrada.nextLine();
 		if(tiro.equals("0")){
 			sair = true;
@@ -200,6 +211,7 @@ public static void main(String[] args){
                         System.out.print("\n");
 		}
 	}
+        
         System.out.println("FIM DE JOGO!!");
         System.out.println("Você atirou "+vezes+" vezes.");
         System.out.println("Você acertou "+Hidroavioes+" Hidroaviões.");
@@ -210,3 +222,4 @@ public static void main(String[] args){
 }
 
 }
+
