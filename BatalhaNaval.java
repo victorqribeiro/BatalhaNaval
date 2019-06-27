@@ -1,4 +1,4 @@
-﻿package Trabalho_BatalhaNaval;
+package Trabalho_BatalhaNaval;
 
 import java.util.Scanner;
 class BatalhaNaval{
